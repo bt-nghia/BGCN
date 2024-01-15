@@ -40,6 +40,6 @@ CONFIG = {
     'retry': 1,
 
     ## test path
-    'test':['model_path_from_hard_sample']
+    'test':['model_path_from_simple_sample']
 }
 
