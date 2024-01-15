@@ -3,13 +3,13 @@
 
 CONFIG = {
     'name': '@changjianxin',
-    'path': './data',
+    'path': './datasets',
     'log': './log',
     'visual': './visual',
     'gpu_id': "0",
     'note': 'some_note',
     'model': 'BGCN',
-    'dataset_name': 'NetEase',
+    'dataset_name': 'iFashion',
     'task': 'tune',
     'eval_task': 'test',
 
@@ -20,10 +20,10 @@ CONFIG = {
     #  'decays': [1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2],
 
     ## optimal hyperparameters 
-    'lrs': [3e-4],
+    'lrs': [1e-3],
     'message_dropouts': [0.3],
     'node_dropouts': [0],
-    'decays': [1e-7],
+    'decays': [1e-4],
 
     ## hard negative sample and further train
     'sample': 'simple',

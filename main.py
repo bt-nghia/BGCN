@@ -39,6 +39,7 @@ def main():
     torch.backends.cudnn.deterministic = True
 
     #  load data
+    # remove tune data
     bundle_train_data, bundle_test_data, item_data, assist_data = \
             dataset.get_dataset(CONFIG['path'], CONFIG['dataset_name'], task=CONFIG['eval_task'])
 
