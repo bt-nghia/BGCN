@@ -9,7 +9,7 @@ CONFIG = {
     'gpu_id': "0",
     'note': 'some_note',
     'model': 'BGCN',
-    'dataset_name': 'iFashion',
+    'dataset_name': 'Youshu',
     'task': 'tune',
     'eval_task': 'test',
 
