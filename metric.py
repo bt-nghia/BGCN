@@ -109,7 +109,7 @@ class NDCG(_Metric):
     def __call__(self, scores, ground_truth):
         device = scores.device
         is_hit = get_is_hit(scores, ground_truth, self.topk)
-        num_pos = ground_truth.sum(dim=1).clamp(0, self.topk).to(torch.long)
+        num_pos = ground_truth.sum(dim=1).clamp(0, self.topk).to(torch.long).to('cpu')
         dcg = self.DCG(is_hit, device)
         idcg = self.IDCGs[num_pos]
         ndcg = dcg/idcg.to(device)
