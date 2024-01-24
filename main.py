@@ -26,7 +26,7 @@ def main():
     #  set env
     setproctitle.setproctitle(f"train{CONFIG['name']}")
     os.environ["CUDA_VISIBLE_DEVICES"] = CONFIG['gpu_id']
-    device = torch.device('cuda')
+    device = torch.device('cuda') if torch.cuda.is_available() else "cpu"
 
     #  fix seed
     seed = 123
@@ -59,8 +59,9 @@ def main():
     bi_graph = assist_data.ground_truth_b_i
 
     #  metric
-    metrics = [Recall(10), Recall(20), NDCG(10), NDCG(20), Recall(40), NDCG(40), Recall(80), NDCG(80)]
-    TARGET = 'Recall@20'
+    metrics = [Recall(1), Recall(2), Recall(3), Recall(4), Recall(5),  
+               NDCG(1), NDCG(2), NDCG(3), NDCG(4), NDCG(5)]
+    TARGET = 'Recall@3'
 
     #  loss
     loss_func = loss.BPRLoss('mean')
@@ -68,7 +69,7 @@ def main():
     #  log
     log = logger.Logger(os.path.join(
         CONFIG['log'], CONFIG['dataset_name'], 
-        f"{CONFIG['model']}_{CONFIG['task']}", ''), 'best', checkpoint_target=TARGET)
+        f"{CONFIG['model']}_{CONFIG['eval_task']}", ''), 'best', checkpoint_target=TARGET)
 
     theta = 0.6
 
