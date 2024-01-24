@@ -13,7 +13,7 @@ import dataset
 from model import BGCN, BGCN_Info
 from utils import check_overfitting, early_stop, logger
 from train import train
-from metric import Recall, NDCG, MRR
+from metric import Recall, NDCG, MRR, Precision
 from config import CONFIG
 from test import test
 import loss
@@ -60,7 +60,8 @@ def main():
 
     #  metric
     metrics = [Recall(1), Recall(2), Recall(3), Recall(4), Recall(5),  
-               NDCG(1), NDCG(2), NDCG(3), NDCG(4), NDCG(5)]
+               NDCG(1), NDCG(2), NDCG(3), NDCG(4), NDCG(5),
+               Precision(1), Precision(2), Precision(3), Precision(4), Precision(5)]
     TARGET = 'Recall@3'
 
     #  loss
