@@ -33,8 +33,8 @@ CONFIG = {
     'conti_train': 'model_file_from_simple_sample.pth',
 
     ## other settings
-    'epochs': 50,
-    'early': 50,
+    'epochs': 200,
+    'early': 200,
     'log_interval': 20,
     'test_interval': 1,
     'retry': 1,
